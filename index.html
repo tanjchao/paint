@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#efe7d8">
+<meta name="description" content="說文解圖：古文有戲，戲有古文。走進書院，從小小書僮、狀元書生到文學宗師，探索古文圖像闖關世界。">
+<title>說文解圖｜三境書院・古文冒險</title>
+<style>
+:root{--bg:#f2ebdf;--ink:#302b29;--muted:#71665e;--paper:#fffdf6;--line:#d7c5aa;--gold:#bc8b4c;--shadow:0 12px 34px #44332416}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;background:radial-gradient(ellipse 55% 24% at 50% 0%,#fff9ec 0%,transparent 100%),linear-gradient(180deg,#e9dfcc 0%,#f6f1e9 42%,#eee6d9 100%);min-height:100vh}
+a{color:inherit}
+button,a{touch-action:manipulation}
+a:focus-visible{outline:3px solid #a06e2c;outline-offset:4px}
+.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+.hero{text-align:center;position:relative;padding:54px 18px 28px}
+.hero:before{content:"";position:absolute;inset:24px 0 auto;max-width:680px;height:150px;margin:auto;background:radial-gradient(ellipse,#e6cda27a,transparent 70%);pointer-events:none}
+.eyebrow{position:relative;color:#875d36;font-weight:850;font-size:13px;letter-spacing:.32em}
+h1{position:relative;font-family:"Noto Serif TC","PMingLiU",serif;font-size:clamp(46px,7.8vw,78px);letter-spacing:.18em;margin:8px 0 0;font-weight:900;text-shadow:0 3px 0 #fff9e8}
+.tagline{font-family:"Noto Serif TC","PMingLiU",serif;font-size:clamp(17px,2.5vw,23px);letter-spacing:.25em;color:#795339;margin:10px 0 0}
+.hero-sub{font-size:14px;letter-spacing:.07em;color:var(--muted);margin:16px 0 0}
+.ornament{display:flex;align-items:center;gap:13px;justify-content:center;margin:20px auto 0;max-width:520px;color:#b38a52}.ornament:before,.ornament:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#bda480)}.ornament:after{background:linear-gradient(90deg,#bda480,transparent)}
+.journey{position:relative;background:#fff9edcf;border:1px solid #d9c5a7;border-radius:22px;box-shadow:var(--shadow);padding:21px 24px 24px;margin:5px auto 30px;overflow:hidden}
+.journey:before,.journey:after{content:"❖";position:absolute;color:#c4aa7b;font-size:20px;top:10px}.journey:before{left:13px}.journey:after{right:13px}
+.journey h2{font-family:"Noto Serif TC","PMingLiU",serif;text-align:center;font-size:19px;letter-spacing:.2em;margin:0 0 18px}
+.path{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:13px;align-items:center;max-width:750px;margin:auto}
+.path-step{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.path-icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:27px;background:linear-gradient(145deg,#fff,#efe0c5);border:1px solid #d8bf95;box-shadow:0 4px 0 #c9b38d70}
+.path-step strong{font-size:15px}.path-step small{color:var(--muted);font-size:11px}.path-arrow{color:#a9854d;font-size:23px;font-weight:800}
+.journey-note{text-align:center;color:var(--muted);font-size:12px;margin:18px 0 0}
+.chapter{--accent:#4f8068;--tint:#e9f2e8;--dark:#325744;position:relative;margin:0 auto 25px;background:#fffdf7;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.chapter.medium{--accent:#557fa1;--tint:#eaf1f9;--dark:#345e80}
+.chapter.hard{--accent:#8b5c7e;--tint:#f3e9f1;--dark:#653b5b}
+.chapter-head{display:flex;align-items:center;gap:18px;padding:22px 26px 20px;background:linear-gradient(105deg,var(--tint),#fffdf8);border-bottom:1px solid #e4d7c5}
+.seal{width:70px;height:70px;border:2px solid var(--accent);border-radius:20px;display:grid;place-items:center;flex:none;transform:rotate(-5deg);background:#ffffffb8;box-shadow:0 5px 0 #b6a38728}
+.seal span{font-family:"Noto Serif TC","PMingLiU",serif;color:var(--dark);font-weight:900;font-size:25px;transform:rotate(5deg)}
+.chapter-title{flex:1;min-width:0}
+.stage-line{font-size:12px;letter-spacing:.15em;color:var(--dark);font-weight:800}
+.chapter h2{font-family:"Noto Serif TC","PMingLiU",serif;font-size:clamp(23px,3vw,30px);letter-spacing:.08em;margin:4px 0}
+.chapter-desc{font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.7}
+.difficulty{border-radius:999px;padding:9px 20px;background:var(--accent);color:white;font-size:clamp(23px,3vw,30px);font-family:"Noto Serif TC","PMingLiU",serif;font-weight:900;letter-spacing:.06em;white-space:nowrap;align-self:center;box-shadow:0 4px 12px #00000015}
+.chapter-content{padding:22px 25px 24px}
+.stage-instruction{font-size:13px;color:#766a5d;margin:0 0 15px;display:flex;gap:8px;align-items:center}
+.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.game{border:1px solid #dacdbb;border-radius:17px;background:#fff;overflow:hidden;display:flex;flex-direction:column;min-width:0;box-shadow:0 6px 17px #382c2010;text-decoration:none;transition:transform .18s,box-shadow .18s}
+a.game:hover{transform:translateY(-4px);box-shadow:0 13px 25px #382c2022}
+.cover{position:relative;aspect-ratio:2.25/1;overflow:hidden;background:#e9ddcb}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.corner{position:absolute;top:12px;left:12px;border-radius:999px;padding:6px 11px;background:#fff9edee;color:#6b4d32;font-size:12px;font-weight:900;box-shadow:0 2px 8px #0002}
+.game-body{padding:16px 18px 17px;display:flex;flex-direction:column;flex:1;gap:7px}
+.game-title{font-family:"Noto Serif TC","PMingLiU",serif;font-size:22px;font-weight:900;margin:0}
+.game-desc{color:var(--muted);font-size:13px;line-height:1.65;margin:0;flex:1}
+.cta{margin-top:8px;border-radius:999px;background:var(--accent);color:#fff;font-size:13px;font-weight:850;padding:11px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.game.is-done .cta{background:#5c7d6d}
+.games.secret-open .game.mystery{grid-column:1/-1;max-width:520px;width:100%;justify-self:center}.game.mystery{background:linear-gradient(145deg,#f9f5ed,#f1ebdf);border-style:dashed;box-shadow:none}
+.mystery-cover{aspect-ratio:2.25/1;display:grid;place-items:center;background:radial-gradient(circle at 50% 60%,#fffdf7,#eadfcf);position:relative;overflow:hidden}
+.mystery-cover:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #cbb99c;border-radius:50%;box-shadow:0 0 0 16px #d9c7a42e,0 0 0 32px #d9c7a421}
+.mystery-mark{position:relative;width:70px;height:70px;border:2px solid #b99f78;border-radius:50%;display:grid;place-items:center;font-family:serif;font-size:42px;color:#9c7e55;background:#fffaf1}
+.mystery .cta{background:#d8cbb7;color:#756653;justify-content:center}
+.mystery .game-title{color:#76634c}
+.extra{margin-top:17px;padding-top:18px;border-top:1px dashed #cbbba4}
+.extra-label{font-size:13px;color:var(--dark);font-weight:850;letter-spacing:.07em;margin:0 0 12px}
+.extra .game{max-width:530px;border-color:#bda9cc;background:#fbf7ff}
+.extra .cta{background:#735c8c}#game-ailian,#game-shishuo2,#game-shengyou{border-color:#bda9cc;background:#fbf7ff}#game-ailian .cta,#game-shishuo2 .cta,#game-shengyou .cta{background:#735c8c}
+.secret-notice{background:#f1e8f7;border:1px solid #cbb7d9;color:#69487e;border-radius:14px;padding:12px 14px;font-size:15px;font-weight:850;line-height:1.6;margin:0 0 15px}.plus-game{border:2px solid #b899d1;background:#fbf7ff}.plus-game .cta{background:#735c8c}.lock-note{display:flex;align-items:center;gap:8px;margin:15px 0 0;color:#8b7a65;font-size:12px}
+[hidden]{display:none!important}
+footer{text-align:center;color:#877769;font-size:12px;padding:12px 0 36px;line-height:1.9}
+@media(max-width:680px){.wrap{width:min(100% - 22px,1120px)}.hero{padding:36px 10px 24px}.journey{padding:20px 12px}.path{gap:5px}.path-icon{width:45px;height:45px;font-size:21px;border-radius:13px}.path-step strong{font-size:12px}.path-step small{font-size:10px}.path-arrow{font-size:17px}.chapter-head{padding:18px 15px;gap:12px}.seal{width:55px;height:55px;border-radius:16px}.seal span{font-size:20px}.chapter h2{font-size:24px}.difficulty{padding:7px 13px;font-size:24px}.chapter-content{padding:15px}.games{gap:10px}.cover,.mystery-cover{aspect-ratio:1.65/1}.game-body{padding:12px 11px}.game-title{font-size:18px}.game-desc{font-size:12px}.cta{font-size:12px;padding:10px 12px}.corner{font-size:10px;padding:5px 8px;top:8px;left:8px}}
+@media(max-width:380px){.seal{display:none}.chapter h2{font-size:21px}.difficulty{font-size:21px;padding:7px 10px}.chapter-desc{font-size:12px}.game-title{font-size:16px}.game-desc{font-size:11px}.chapter-content{padding:12px}.games{gap:8px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* v2.2 本機學籍卡 */
+.academy-card{margin:2px auto 28px;padding:22px 24px;border:1px solid #cbb38a;border-radius:22px;background:linear-gradient(125deg,#fffdf7,#f3e8d3);box-shadow:var(--shadow)}
+.academy-top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.academy-top h2{margin:0;font-size:24px;font-family:"Noto Serif TC","PMingLiU",serif}.academy-top p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.academy-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.academy-controls button,.academy-controls select,.academy-controls input{border:1px solid #cdb99a;border-radius:12px;background:#fffaf2;color:#4f3925;font:inherit;padding:10px;min-height:43px}.academy-controls button{background:#71583d;color:white;cursor:pointer;font-weight:800}.academy-controls input{width:146px;max-width:100%}.academy-controls select{max-width:170px}
+.academy-detail{margin-top:16px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px}.academy-rank{display:flex;align-items:center;gap:13px}.academy-avatar{height:70px;width:70px;display:grid;place-items:center;font-size:36px;border-radius:18px;border:1px solid #dbc9a9;background:#fff5dc}.academy-rank strong{display:block;font-size:23px;line-height:1.4}.academy-rank small{color:#715e4e}.academy-value{font-weight:900;color:#795229;font-size:23px}.academy-progress{background:#ded2bc;border-radius:10px;overflow:hidden;height:11px;margin:10px 0 7px}.academy-progress>div{height:100%;background:linear-gradient(90deg,#6f987c,#d6ab59);width:0;transition:width .2s}.academy-next{font-size:12px;color:#786854}
+.academy-badges{border-top:1px dashed #cbb89c;margin-top:17px;padding-top:13px}.academy-badges strong{font-size:14px}.badges-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.award{cursor:pointer;font-family:inherit;transition:transform .15s}.award:hover{transform:translateY(-2px)}.award:focus-visible{outline:3px solid #397450;outline-offset:2px}.award{border-radius:999px;background:#f6e3b6;border:1px solid #cfac6d;padding:8px 12px;font-size:13px;font-weight:800;color:#6f4e24}.badge-empty{font-size:13px;color:#796e63}
+.academy-help{font-size:12px;color:#776c5b;margin:12px 0 0;line-height:1.6}
+@media(max-width:700px){.academy-card{padding:17px 15px}.academy-top h2{font-size:21px}.academy-detail{grid-template-columns:1fr}.academy-controls{width:100%}.academy-controls input{flex:1;min-width:110px}.academy-rank strong{font-size:20px}}
+
+.academy-ranking{margin-top:12px;display:flex;flex-wrap:wrap;gap:9px}.academy-ranking button{border:0;background:#6b5744;color:#fff;border-radius:999px;padding:11px 16px;font:inherit;font-weight:800;cursor:pointer}
+.sw-modal{position:fixed;inset:0;z-index:9999;background:#21180eb8;display:flex;align-items:center;justify-content:center;padding:16px}.sw-modal[hidden]{display:none}.sw-panel{background:#fffdf8;border:2px solid #c9b38d;border-radius:19px;max-width:550px;width:100%;padding:23px;max-height:85vh;overflow:auto;box-shadow:0 20px 55px #21180e60}.sw-panel h3{margin:0 0 12px;font-size:23px}.sw-panel p{line-height:1.8}.sw-close{background:#795a3d;color:#fff;border:0;border-radius:12px;padding:10px 20px;cursor:pointer;font:inherit;font-weight:700}.sw-board{width:100%;border-collapse:collapse;font-size:14px}.sw-board td,.sw-board th{padding:9px 5px;border-bottom:1px solid #ddd0be;text-align:left}.sw-board td:last-child{text-align:right}.sw-panel select{font:inherit;padding:9px;border-radius:8px;margin-bottom:12px;width:100%}
+.cloud-form{display:grid;gap:12px}.cloud-form label{display:grid;gap:5px;font-weight:750}.cloud-form input{width:100%;border:1px solid #bca581;border-radius:10px;font:inherit;padding:12px}.cloud-form button{background:#71583d;color:#fff;border:0;border-radius:10px;padding:12px;font:inherit;font-weight:750;cursor:pointer}.academy-controls [hidden]{display:none}
+/* v2.5.4 精簡橢圓成就徽章 */
+#swBody{white-space:pre-line}
+.gallery-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.gallery-count{font-size:12px;font-weight:800;color:#74572f;background:#f5e9d0;padding:4px 9px;border-radius:999px}
+.gallery-note{font-size:12px;color:#786d60;margin:5px 0 7px}
+.badges-list.gallery-grid{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:8px}
+.gallery-badge{font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:36px;border-radius:999px;padding:6px 11px;border:1px solid #cfac6d;background:#f6e3b6;color:#694921;font-size:13px;font-weight:800;line-height:1.25;cursor:pointer;transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.gallery-badge:hover{transform:translateY(-2px);box-shadow:0 3px 10px #65432120}
+.gallery-badge:focus-visible{outline:3px solid #397450;outline-offset:2px}
+.gallery-badge.locked{background:#eceae7;border-color:#d2cec8;color:#85817b}
+.gallery-badge.locked .gallery-icon{filter:grayscale(1);opacity:.55}
+.gallery-icon{font-size:16px;line-height:1}
+.gallery-name{font-size:13px;font-weight:800}
+@media(max-width:420px){.badges-list.gallery-grid{gap:6px}.gallery-badge{padding:6px 9px;min-height:34px}.gallery-name{font-size:12px}}
+
+#game-friend-date[hidden],#game-night-travel[hidden],#game-red_river[hidden],#paint-stage[hidden]{display:none!important}
+
+/* 普通難度第四、五關維持獨立解鎖，但解鎖後同一排顯示（手機也雙欄） */
+.medium-stage-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:17px;align-items:start}
+.medium-stage-pair>.extra{margin:0;padding-top:16px;min-width:0}
+.medium-stage-pair>.extra>.games{display:grid;grid-template-columns:minmax(0,1fr)}
+.medium-stage-pair>.extra .game{width:100%;max-width:none;min-width:0;height:100%}
+.medium-stage-pair>.extra .extra-label{line-height:1.5;min-height:2.7em}
+@media(max-width:680px){.medium-stage-pair{gap:10px}.medium-stage-pair>.extra .extra-label{font-size:12px;letter-spacing:0}.medium-stage-pair>.extra .game-body{padding:12px 11px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+  <div class="eyebrow">古文圖像理解 × 書院冒險</div>
+  <h1>說文解圖</h1>
+  <p class="tagline">古文有戲，戲有古文</p>
+  <div class="ornament">❖</div>
+  <p class="hero-sub">入書院 · 讀古文 · 闖三境 · 探秘篇</p>
+</header>
+<section class="academy-card" aria-labelledby="academy-title">
+  <div class="academy-top"><div><h2 id="academy-title">📜 我的書院學籍</h2><p>完成古文，累積文采值，蒐集文學徽章。</p></div>
+    <div class="academy-controls" id="academyCloudControls"><span id="cloudStatus">尚未登入雲端學籍</span><button id="cloudShowCreate" type="button">建立雲端學籍</button><button id="cloudShowLogin" type="button">換裝置登入</button><button id="cloudLogout" type="button" hidden>登出學籍</button></div>
+  </div>
+  <div class="academy-detail"><div class="academy-rank"><div class="academy-avatar" id="academyAvatar">📖</div><div><small id="academyName">尚未建立學籍</small><strong id="academyRank">迷路小書僮</strong><small id="academyCompleted">0 篇已通關</small></div></div>
+    <div><div class="academy-value" id="academyPoints">0 文采值</div><div class="academy-progress" aria-label="下一階進度"><div id="academyBar"></div></div><div class="academy-next" id="academyNext">輸入姓名建立學籍，或開始挑戰文章。</div></div></div>
+  <div class="academy-badges"><div class="gallery-head"><strong>🏅 文學成就圖鑑</strong><span id="academyBadgeCount" class="gallery-count">0 / 12 已收集</span></div><p class="gallery-note">彩色為已獲得，灰色為未解鎖；點擊徽章查看取得條件。</p><div id="academyBadges" class="badges-list gallery-grid" aria-label="文學成就徽章圖鑑"></div></div>
+  <div class="academy-ranking"><button type="button" id="academyLeaderboardBtn">🏆 查看已開通的雲端排行榜</button></div>
+  <p class="academy-help">雲端學籍跨裝置同步；同裝置關閉瀏覽器後仍自動記住。學籍代碼是六位數，恢復碼四位數；請妥善保存恢復碼。舊本機進度可在首次建立或登入時匯入。</p>
+</section>
+<section class="chapter easy" aria-labelledby="easy-title">
+  <header class="chapter-head">
+    <div class="seal" aria-hidden="true"><span>童</span></div>
+    <div class="chapter-title"><div class="stage-line">第一境 · 初入書院</div><h2 id="easy-title">小小書僮</h2><p class="chapter-desc">從故事中認識古文，勇敢踏出第一步。</p></div>
+    <span class="difficulty">簡單</span>
+  </header>
+  <div class="chapter-content">
+    <p class="stage-instruction">✦ 初始兩關 · 目前兩關皆可挑戰</p>
+    <div class="games">
+      <a class="game" href="https://tanjchao.github.io/Mulan-Poem/index.html" id="game-mulan">
+        <div class="cover"><img src="https://tanjchao.github.io/Mulan-Poem/image/mulan_01.webp" alt="木蘭詩插畫" loading="eager"><span class="corner">第一關</span></div>
+        <div class="game-body"><h3 class="game-title">木蘭詩</h3><p class="game-desc">代父從軍，走進木蘭的英雄旅程。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game" href="https://tanjchao.github.io/Loushiming/" id="game-room">
+        <div class="cover"><img src="https://tanjchao.github.io/Loushiming/image/room_01.webp" alt="陋室銘插畫" loading="lazy"><span class="corner">第二關</span></div>
+        <div class="game-body"><h3 class="game-title">陋室銘</h3><p class="game-desc">山不在高，有仙則名；感受劉禹錫的陋室雅趣。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game" href="https://tanjchao.github.io/friend-date/" id="game-friend-date" hidden>
+        <div class="cover"><img src="friend-date-cover.webp" alt="陳太丘與友期行插畫" loading="lazy"><span class="corner">第三關</span></div>
+        <div class="game-body"><h3 class="game-title">陳太丘與友期行</h3><p class="game-desc">從七歲元方的對答，認識守信、尊重與禮貌。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game" href="https://tanjchao.github.io/night-travel/" id="game-night-travel" hidden>
+        <div class="cover"><img src="night-travel-cover.webp" alt="記承天寺夜遊插畫" loading="lazy"><span class="corner">第四關</span></div>
+        <div class="game-body"><h3 class="game-title">記承天寺夜遊</h3><p class="game-desc">隨蘇軾與張懷民賞月漫步，發現庭中竹柏月影之美。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game" href="https://tanjchao.github.io/hourse/" id="game-hourse" hidden>
+        <div class="cover"><img src="hourse-cover.webp" alt="馬說千里馬與伯樂插畫" loading="lazy"><span class="corner">第五關</span></div>
+        <div class="game-body"><h3 class="game-title">馬說</h3><p class="game-desc">韓愈筆下的千里馬與伯樂：識別人才，理解懷才不遇的感嘆。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game" href="https://tanjchao.github.io/free-tree/" id="game-five-tree" hidden>
+        <div class="cover"><img src="five-tree-cover.webp" alt="五柳先生與柳樹插畫" loading="lazy"><span class="corner">第六關</span></div>
+        <div class="game-body"><h3 class="game-title">五柳先生傳</h3><p class="game-desc">陶淵明筆下的五柳先生：好讀書、愛飲酒，安貧樂道不慕榮利。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game" href="https://tanjchao.github.io/red_river/" id="game-red_river" hidden>
+        <div class="cover"><img src="red_river-cover.webp" alt="岳飛怒髮衝冠饅頭人插畫" loading="lazy"><span class="corner">第七關</span></div>
+        <div class="game-body"><h3 class="game-title">滿江紅</h3><p class="game-desc">兩章十句，感受岳飛仰天長嘯、矢志收復山河的壯志。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+    </div>
+    <p class="lock-note">📜 通過前兩關可解鎖《陳太丘與友期行》，通過前三關再解鎖《記承天寺夜遊》，完成第四關可解鎖《馬說》，完成第五關可解鎖《五柳先生傳》，完成第六關可解鎖《滿江紅》。</p>
+    <div class="extra" id="easy-extras" hidden><p class="extra-label">✦ 兩關通過！第三關《陳太丘與友期行》已解鎖。</p></div>
+  </div>
+</section>
+<section class="chapter medium" aria-labelledby="medium-title">
+  <header class="chapter-head">
+    <div class="seal" aria-hidden="true"><span>榜</span></div>
+    <div class="chapter-title"><div class="stage-line">第二境 · 進京趕考</div><h2 id="medium-title">狀元書生</h2><p class="chapter-desc">穿越文意迷宮，揭開文字背後的故事。</p></div>
+    <span class="difficulty">普通</span>
+  </header>
+  <div class="chapter-content">
+    <p class="secret-notice" id="taohuayuan-unlocked-note" hidden>✨ 桃源秘境已解鎖！《桃花源記 PLUS》就在第一關旁邊，快來探索！</p>
+    <p class="stage-instruction">✦ 初始兩關 · 目前兩關皆可挑戰</p>
+    <div class="games">
+      <a class="game" href="https://tanjchao.github.io/Taohuayuan/" id="game-taohuayuan">
+        <div class="cover"><img src="https://tanjchao.github.io/Taohuayuan/images/tao_01.webp" alt="桃花源記插畫" loading="eager"><span class="corner">第一關</span></div>
+        <div class="game-body"><h3 class="game-title">桃花源記</h3><p class="game-desc">隨武陵漁人尋訪桃源，探索世外奇境。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game plus-game" id="taohuayuan-secret" hidden href="https://tanjchao.github.io/Taohuayuan-Alien/">
+        <div class="cover"><img src="taohuayuan-plus-cover.webp" alt="桃花源記 PLUS 的神秘山洞封面" loading="lazy"><span class="corner">隱藏篇章</span></div>
+        <div class="game-body"><h3 class="game-title">桃花源記 PLUS</h3><p class="game-desc">熟悉的桃源，似乎還藏著另一段祕密……</p><span class="cta"><span class="status">探索秘境</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game" href="https://tanjchao.github.io/Ershi-Jiqu/" id="game-child">
+        <div class="cover"><img src="https://tanjchao.github.io/Ershi-Jiqu/image/child_01.webp" alt="兒時記趣插畫" loading="lazy"><span class="corner">第二關</span></div>
+        <div class="game-body"><h3 class="game-title">兒時記趣</h3><p class="game-desc">以童年眼光觀察蚊鶴、蟲蟻，發現物外之趣。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+    </div>
+    <p class="lock-note">📜 完成前兩關，即可解鎖第三關《陳太丘與友期行》。桃花源記 PLUS 另有解鎖條件。</p>
+    <div class="extra" id="medium-extras" hidden><p class="extra-label">✦ 兩關通過！第三關《愛蓮說》已解鎖。</p><div class="games"><a class="game" href="https://tanjchao.github.io/ailian/" id="game-ailian"><div class="cover"><img src="ailian-cover.webp" alt="愛蓮說插畫" loading="lazy"><span class="corner">第三關</span></div><div class="game-body"><h3 class="game-title">愛蓮說</h3><p class="game-desc">品賞菊、牡丹與蓮，領略周敦頤筆下的君子風骨。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div></a></div></div>
+  <div class="medium-stage-pair" id="medium-stage-pair">
+  <div class="extra" id="mountain-stage" hidden><p class="extra-label">✦ 普通難度第四關 · 愚公移山</p><div class="games"><a class="game" href="https://tanjchao.github.io/mountain/" id="game-mountain"><div class="cover"><img src="mountain-cover.webp" alt="愚公移山插畫" loading="lazy"><span class="corner">第四關</span></div><div class="game-body"><h3 class="game-title">愚公移山</h3><p class="game-desc">十六幅連環漫畫，體會愚公不畏艱難、世代堅持的精神。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div></a></div></div>
+
+  <div class="extra" id="paint-stage" hidden>
+    <p class="extra-label">✦ 普通難度第五關 · 畫菊自序</p>
+    <div class="games">
+      <a class="game" href="https://tanjchao.github.io/paint/" id="game-paint">
+        <div class="cover"><img src="paint-cover.webp" alt="畫菊自序畫菊饅頭人插畫" loading="lazy"><span class="corner">第五關</span></div>
+        <div class="game-body"><h3 class="game-title">畫菊自序</h3><p class="game-desc">四章十六句，從各人志趣、琴詩書畫，體會畫菊寄託的高潔心志。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+    </div>
+  </div>
+  </div><!-- /.medium-stage-pair -->
+  </div>
+</section>
+<section class="chapter hard" aria-labelledby="hard-title">
+  <header class="chapter-head">
+    <div class="seal" aria-hidden="true"><span>宗</span></div>
+    <div class="chapter-title"><div class="stage-line">第三境 · 問鼎文壇</div><h2 id="hard-title">文學宗師</h2><p class="chapter-desc">識人物風骨，解文脈深意，磨練宗師眼界。</p></div>
+    <span class="difficulty">困難</span>
+  </header>
+  <div class="chapter-content">
+    <p class="stage-instruction">✦ 初始兩關 · 目前兩關皆可挑戰</p>
+    <div class="games">
+      <a class="game" href="https://tanjchao.github.io/guwen-game/index.html" id="game-zuozhongyi">
+        <div class="cover"><img src="https://tanjchao.github.io/guwen-game/images/scene1.webp" alt="左忠毅公軼事插畫" loading="lazy"><span class="corner">第一關</span></div>
+        <div class="game-body"><h3 class="game-title">左忠毅公軼事</h3><p class="game-desc">風雪訪賢，領略忠毅風骨與師生情義。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game" href="https://tanjchao.github.io/Shishuo-Xuanyi/" id="game-shishuo1">
+        <div class="cover"><img src="https://tanjchao.github.io/Shishuo-Xuanyi/image/ss1_01.webp" alt="世說新語選1插畫" loading="lazy"><span class="corner">第二關</span></div>
+        <div class="game-body"><h3 class="game-title">世說新語選1</h3><p class="game-desc">從詠絮之才到管寧割席，品讀魏晉人物的機智與風骨。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+    </div>
+    <p class="lock-note">📜 完成前兩關，即可解鎖第三關《陳太丘與友期行》。</p>
+    <div class="extra" id="hard-extras" hidden>
+      <p class="extra-label">✦ 已完成前兩關！第三關《世說新語選2》解鎖。</p>
+      <div class="games"><a class="game" href="https://tanjchao.github.io/Shishuo-Xuaner/" id="game-shishuo2">
+        <div class="cover"><img src="https://tanjchao.github.io/Shishuo-Xuaner/image/changan_01.webp" alt="世說新語選2插畫" loading="lazy"><span class="corner">第三關</span></div>
+        <div class="game-body"><h3 class="game-title">世說新語選2</h3><p class="game-desc">從不見長安到共舟避難，體會魏晉人物的智慧與情義。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a></div>
+    </div>
+  </div>
+<div class="extra" id="hard-fourth" hidden><p class="extra-label">✦ 三關完成！第四關《生於憂患死於安樂》已解鎖。</p><div class="games"><a class="game" href="https://tanjchao.github.io/shengyou/" id="game-shengyou"><div class="cover"><img src="shengyou-cover.webp" alt="生於憂患死於安樂插畫" loading="lazy"><span class="corner">第四關</span></div><div class="game-body"><h3 class="game-title">生於憂患死於安樂</h3><p class="game-desc">閱讀孟子筆下六位先賢的磨練，體會憂患奮起與安樂衰亡。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div></a></div></div>
+
+<div class="extra" id="hard-fifth" hidden><p class="extra-label">✦ 困難難度第五關 · 岳陽樓記</p><div class="games"><a class="game" href="https://tanjchao.github.io/sun_tower/" id="game-sun_tower"><div class="cover"><img src="sun_tower-cover.webp" alt="岳陽樓與洞庭湖插畫" loading="lazy"><span class="corner">第五關</span></div><div class="game-body"><h3 class="game-title">岳陽樓記</h3><p class="game-desc">四章二十八幅插畫，體會洞庭陰晴與先憂後樂的胸懷。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div></a></div></div>
+</section>
+<footer>說文解圖 · 古文有戲，戲有古文<br>書院冒險入口 · 通關紀錄與文采值可透過雲端學籍同步</footer>
+</main>
+<div class="sw-modal" id="swModal" hidden role="dialog" aria-modal="true" aria-labelledby="swTitle"><div class="sw-panel"><h3 id="swTitle"></h3><div id="swBody"></div><button type="button" class="sw-close" id="swClose">關閉</button></div></div>
+<script>
+const SHUOWEN_BADGE_INFO={"精忠報國":{"icon":"🛡️","condition":"完整通關《滿江紅》。"},"菊影丹青":{"icon":"🌼","condition":"完整通關《畫菊自序》。"},"先憂後樂":{"icon":"🌊","condition":"完整通關《岳陽樓記》。"},"移山不懈":{"icon":"⛰️","condition":"完整通關《愚公移山》。"},"五柳隱士":{"icon":"🌿","condition":"完整通關《五柳先生傳》。"},"識馬知才":{"icon":"🐎","condition":"完整通關《馬說》。"},"月夜閒遊":{"icon":"🌙","condition":"完整通關《記承天寺夜遊》。"},"守信知禮":{"icon":"🤝","condition":"完整通關《陳太丘與友期行》。"},"憂患礪志":{"icon":"🌩️","condition":"完整通關《生於憂患死於安樂》。"},"陋室雅士":{"icon":"🏡","condition":"完整通關《陋室銘》。"},"愛蓮君子":{"icon":"🪷","condition":"完整通關《愛蓮說》。"},"童趣觀察家":{"icon":"🐛","condition":"完整通關《兒時記趣》。"},"世說妙語家":{"icon":"❄️","condition":"完整通關《世說新語選1》。"},"世說風骨家":{"icon":"⛵","condition":"完整通關《世說新語選2》。"},"代父從軍": {"icon": "⚔️", "condition": "完整通關《木蘭詩》。"}, "桃源訪客": {"icon": "🌸", "condition": "完整通關《桃花源記》。"}, "秘境探索者": {"icon": "🗝️", "condition": "完整通關《桃花源記 PLUS》。"}, "忠義傳人": {"icon": "🏯", "condition": "完整通關《左忠毅公軼事》。"}, "一氣呵成！": {"icon": "🎯", "condition": "同一次挑戰中，整篇選圖配對題從頭到尾沒有答錯任何一題。"}, "不假思索": {"icon": "🧠", "condition": "同一次完整挑戰中，從頭到尾沒有使用白話翻譯提示。"}, "妙手排章": {"icon": "📜", "condition": "同一次挑戰中，每一章的排序都在第一次檢查時完全正確。"}};
+/* 說文解圖：本機學籍 v1｜跨 github.io 同來源 localStorage，與雲端排行榜分離 */
+(function(){
+ 'use strict';
+ const KEY='shuowen_academy_v1';
+ const GAMES={'red_river':{title:'滿江紅',tier:'easy',base:100,badge:'精忠報國'},'paint':{title:'畫菊自序',tier:'normal',base:150,badge:'菊影丹青'},'mountain':{title:'愚公移山',tier:'normal',base:150,badge:'移山不懈'},'sun_tower':{title:'岳陽樓記',tier:'hard',base:200,badge:'先憂後樂'},'five-tree':{title:'五柳先生傳',tier:'easy',base:100,badge:'五柳隱士'},hourse:{title:'馬說',tier:'easy',base:100,badge:'識馬知才'},night_travel:{title:'記承天寺夜遊',tier:'easy',base:100,badge:'月夜閒遊'},friend_date:{title:'陳太丘與友期行',tier:'easy',base:100,badge:'守信知禮'},ailian:{title:'愛蓮說',tier:'normal',base:150,badge:'愛蓮君子'},shengyou:{title:'生於憂患死於安樂',tier:'hard',base:200,badge:'憂患礪志'},room:{title:'陋室銘',tier:'easy',base:100,badge:'陋室雅士'},child:{title:'兒時記趣',tier:'normal',base:150,badge:'童趣觀察家'},shishuo1:{title:'世說新語選1',tier:'hard',base:200,badge:'世說妙語家'},shishuo2:{title:'世說新語選2',tier:'hard',base:200,badge:'世說風骨家'},mulan:{title:'木蘭詩',tier:'easy',base:100,badge:'代父從軍'},taohuayuan:{title:'桃花源記',tier:'normal',base:150,badge:'桃源訪客'},taohuayuan_plus:{title:'桃花源記 PLUS',tier:'special',base:100,badge:'秘境探索者'},zuozhongyi:{title:'左忠毅公軼事',tier:'hard',base:200,badge:'忠義傳人'}};
+ const RANKS=[{name:'迷路小書僮',min:0},{name:'聰明小書僮',min:100},{name:'進京趕考書生',min:300},{name:'狀元及第進士',min:700},{name:'名滿京城大師',min:1400},{name:'一代宗師文冠天下',min:2500}];
+ const normalize=s=>String(s||'').trim().slice(0,12);
+ function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');if(d&&d.version===1&&d.profiles&&typeof d.profiles==='object')return d}catch(e){}return {version:1,active:'',profiles:{}}}
+ function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(e){return false}}
+ function getProfile(name,create=false){const d=load();let n=normalize(name||d.active);if(!n)return null;if(create&&!d.profiles[n]){d.profiles[n]={name:n,created:Date.now(),games:{},badges:{}};save(d)}return d.profiles[n]||null}
+ function activate(name){const n=normalize(name);if(!n)return null;const d=load();if(!d.profiles[n])d.profiles[n]={name:n,created:Date.now(),games:{},badges:{}};d.active=n;save(d);return d.profiles[n]}
+ function list(){const d=load();return Object.values(d.profiles).sort((a,b)=>(b.updated||b.created||0)-(a.updated||a.created||0))}
+ function total(p){return Object.values(p?.games||{}).reduce((acc,g)=>acc+Math.max(0,Number(g.points||0)),0)}
+ function completed(p){return Object.keys(p?.games||{}).filter(id=>(p.games[id]?.completed||0)>0)}
+ function rankOf(p){const xp=total(p),g=completed(p);let result=0;if(xp>=100&&g.length>=1)result=1;if(xp>=300&&g.some(id=>GAMES[id]?.tier==='normal'))result=Math.max(result,2);if(xp>=700&&g.length>=3)result=Math.max(result,3);if(xp>=1400&&g.some(id=>GAMES[id]?.tier==='hard'))result=Math.max(result,4);if(xp>=2500&&g.length>=6&&g.some(id=>GAMES[id]?.tier==='hard'))result=5;return result}
+ function maxScore(questionCount,chapterSize){const size=chapterSize||((questionCount===28)?7:(questionCount===16?4:5));const chapterCount=Math.ceil(questionCount/size);let combo=0;for(let chapter=0;chapter<chapterCount;chapter++){const q=Math.min(size,questionCount-chapter*size);for(let c=1;c<=q;c++)combo+=(c>=5?50:c===4?30:c===3?20:c===2?10:0)}return questionCount*150+questionCount*50+combo}
+ function finish(name,id,info){const d=load(),n=normalize(name);if(!n||!GAMES[id])return null;if(!d.profiles[n])d.profiles[n]={name:n,created:Date.now(),games:{},badges:{}};const p=d.profiles[n],g=GAMES[id],before=rankOf(p);const prev=p.games[id]||{};
+  const max=id==='shishuo1'?5050:id==='shishuo2'?5180:maxScore(info.questionCount,info.chapterSize),raw=Number(info.score)||0,percent=max>0?Math.max(0,Math.min(100,Math.round(raw/max*10000)/100)):0;
+  const tier=Math.max(0,Math.min(100,Math.floor((percent+1e-8)/10)*10));const extra=tier>=50?tier:0;
+  const multiplier=g.tier==='hard'?1.2:1;const awarded=Math.round((g.base+extra)*multiplier);const oldPoints=Math.max(0,Number(prev.points||0));const delta=Math.max(0,awarded-oldPoints);
+  const badges=p.badges||(p.badges={}),newBadges=[];function grant(b){if(!badges[b]){badges[b]={at:Date.now(),game:id};newBadges.push(b)}}
+  grant(g.badge);
+  if(info.noWrong)grant('一氣呵成！');
+  if(info.noHint)grant('不假思索');
+  if(info.sortPerfect)grant('妙手排章');
+  p.games[id]={completed:(Number(prev.completed)||0)+1,points:Math.max(oldPoints,awarded),bestPercent:Math.max(Number(prev.bestPercent)||0,percent),bestScore:Math.max(Number(prev.bestScore)||0,raw),lastAt:Date.now()};p.updated=Date.now();d.active=n;const persisted=save(d),after=rankOf(p);
+  return {name:n,game:id,percent,max,base:Math.round(g.base*multiplier),bonus:Math.round(extra*multiplier),delta,total:total(p),tier:RANKS[after].name,rankUp:after>before,newBadges,persisted,rank:after};
+ }
+ window.ShuowenAcademy={KEY,GAMES,RANKS,load,activate,getProfile,list,total,completed,rankOf,maxScore,finish};
+})();
+
+/* 雲端學籍 v2.4：公開 RPC，僅在已登入時才雲端同步 */
+(function(){'use strict';
+const URL='https://qxgysajhvqjpogrsutyf.supabase.co', KEY='sb_publishable_TvmZX_hhWXlQlxEQ4ejz5Q_UOnwedVP';
+const SESSION='shuowen_cloud_session_v1',LOCAL='shuowen_academy_v1';
+function session(){try{const s=JSON.parse(localStorage.getItem(SESSION)||'null');return s&&/^\d{6}$/.test(s.code)&&/^[a-f0-9]{64}$/.test(s.token)?s:null}catch(e){return null}}
+function randomToken(){const a=new Uint8Array(32);crypto.getRandomValues(a);return Array.from(a,b=>b.toString(16).padStart(2,'0')).join('')}
+async function rpc(name,data){const res=await fetch(URL+'/rest/v1/rpc/'+name,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'},body:JSON.stringify(data)});let body;try{body=await res.json()}catch(e){body=null}if(!res.ok)throw Error(body?.message||'雲端連線失敗（HTTP '+res.status+'）');return body}
+function profile(name){try{const d=JSON.parse(localStorage.getItem(LOCAL)||'{}');return d.profiles?.[name]||null}catch(e){return null}}
+function merge(a,b){a=a&&typeof a==='object'?a:{};b=b&&typeof b==='object'?b:{};const out={name:b.name||a.name||'',created:Math.min(Number(a.created)||Date.now(),Number(b.created)||Date.now()),games:{},badges:{...a.badges,...b.badges}};for(const id of new Set([...Object.keys(a.games||{}),...Object.keys(b.games||{})])){const x=a.games?.[id]||{},y=b.games?.[id]||{};out.games[id]={completed:Math.max(Number(x.completed)||0,Number(y.completed)||0),points:Math.max(Number(x.points)||0,Number(y.points)||0),bestPercent:Math.max(Number(x.bestPercent)||0,Number(y.bestPercent)||0),bestScore:Math.max(Number(x.bestScore)||0,Number(y.bestScore)||0),lastAt:Math.max(Number(x.lastAt)||0,Number(y.lastAt)||0)}}return out}
+function setLocal(name,p){const d={version:1,active:name,profiles:{}};d.profiles[name]={...p,name};localStorage.setItem(LOCAL,JSON.stringify(d));window.dispatchEvent(new Event('shuowen-cloud-changed'))}
+async function attach(result,token){const name=result.name;const combined=merge(result.progress,profile(name));setLocal(name,combined);localStorage.setItem(SESSION,JSON.stringify({code:result.code,token,name}));try{await push()}catch(e){console.warn('初次同步尚未完成',e)}return {name,code:result.code,pin:result.pin||null}}
+async function create(code,name){if(!/^\d{6}$/.test(code))throw Error('學籍代碼必須是六位數');if(!name.trim()||name.trim().length>12)throw Error('姓名請輸入 1～12 個字');const token=randomToken();const result=await rpc('sw_cloud_create',{p_code:code,p_name:name.trim(),p_token:token});return attach(result,token)}
+async function login(code,pin){if(!/^\d{6}$/.test(code)||!/^\d{4}$/.test(pin))throw Error('請輸入六位學籍代碼及四位恢復碼');const token=randomToken();const result=await rpc('sw_cloud_login',{p_code:code,p_pin:pin,p_token:token});return attach(result,token)}
+async function pull(){const s=session();if(!s)return null;return push()}
+function isCovered(saved,wanted){
+ const a=saved&&typeof saved==='object'?saved:{};
+ const b=wanted&&typeof wanted==='object'?wanted:{};
+ for(const [id,need] of Object.entries(b.games||{})){
+  const have=a.games?.[id]||{};
+  for(const field of ['completed','points','bestPercent','bestScore','lastAt']){
+   if((Number(have[field])||0)<(Number(need[field])||0))return false;
+  }
+ }
+ for(const id of Object.keys(b.badges||{})){if(!Object.prototype.hasOwnProperty.call(a.badges||{},id))return false}
+ return true;
+}
+let ongoing=null;
+async function push(){
+ const s=session();if(!s)throw Error('尚未登入雲端學籍');
+ if(ongoing){await ongoing;return push()}
+ const job=(async()=>{
+  for(let attempt=0;attempt<4;attempt++){
+   if(!session()||session().code!==s.code||session().token!==s.token)throw Error('學籍已切換，停止同步');
+   const remote=await rpc('sw_cloud_get',{p_code:s.code,p_token:s.token});
+   const current=profile(s.name);if(!current)throw Error('找不到目前學籍的本機資料');
+   const combined=merge(remote.progress,current);
+   // Only write if cloud misses something. Never replace freshly changed local data with an earlier snapshot.
+   const saved=isCovered(remote.progress,combined)?remote:await rpc('sw_cloud_save',{p_code:s.code,p_token:s.token,p_progress:combined});
+   const newest=profile(s.name);if(!newest)throw Error('本機學籍資料已更動');
+   const union=merge(saved.progress,newest);
+   setLocal(s.name,union);
+   if(isCovered(saved.progress,union))return saved;
+  }
+  throw Error('學籍在同步期間持續更新，請再按一次重試');
+ })();
+ ongoing=job;
+ try{return await job}finally{if(ongoing===job)ongoing=null}
+}
+async function logout(){const s=session();if(s){await push();await rpc('sw_cloud_logout',{p_code:s.code,p_token:s.token});}localStorage.removeItem(SESSION);localStorage.removeItem(LOCAL);window.dispatchEvent(new Event('shuowen-cloud-changed'))}
+window.ShuowenCloud={session,create,login,pull,push,logout};
+})();
+
+
+/* v2.0 通關紀錄：各 GitHub Pages 專案共用同一 github.io 網域的 localStorage。 */
+(function(){
+  'use strict';
+  const KEY='shuowen_progress_v1';
+  try{localStorage.setItem('shuowen_portal_url_v1',location.href.split('#')[0]);}catch(e){}
+  function getCompleted(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');return d?.completed&&typeof d.completed==='object'?d.completed:{};}catch(e){return {};}}
+  let completed=getCompleted();
+  const done=(id)=>Boolean(completed[id])||Object.values(window.ShuowenAcademy?.load()?.profiles||{}).some(p=>Number(p?.games?.[id]?.completed||0)>0 && p.name===(window.ShuowenCloud?.session()?.name||window.ShuowenAcademy.load().active));
+     function updateGameCards(){completed=getCompleted();
+const games=[['mulan','game-mulan'],['room','game-room'],['taohuayuan','game-taohuayuan'],['child','game-child'],['zuozhongyi','game-zuozhongyi'],['shishuo1','game-shishuo1'],['shishuo2','game-shishuo2'],['ailian','game-ailian'],['taohuayuan_plus','taohuayuan-secret'],['shengyou','game-shengyou'],['friend_date','game-friend-date'],['night_travel','game-night-travel'],['hourse','game-hourse'],['five-tree','game-five-tree'],['red_river','game-red_river'],['paint','game-paint'],['mountain','game-mountain'],['sun_tower','game-sun_tower']];
+  for(const [id,elementId] of games){const el=document.getElementById(elementId);if(el){const finished=done(id);el.classList.toggle('is-done',finished);const status=el.querySelector('.status');if(status)status.textContent=finished?'✓ 已通關 · 再次挑戰':(id==='taohuayuan_plus'?'探索秘境':'開始闖關');}}
+  // 將解鎖關卡放回同一個兩欄網格，避免各自建立新列。
+  for(const [cardId,sectionId,extraId] of [
+    ['game-ailian','medium-extras','medium-extras'],
+    ['game-shishuo2','hard-extras','hard-extras'],
+    ['game-shengyou','hard-extras','hard-fourth'],['game-sun_tower','hard-extras','hard-fifth']
+  ]){
+    const card=document.getElementById(cardId);
+    const chapter=document.getElementById(sectionId)?.closest('.chapter');
+    const mainGrid=chapter?.querySelector('.chapter-content > .games');
+    if(card&&mainGrid&&card.parentElement!==mainGrid) mainGrid.appendChild(card);
+  }
+  const secretOpen=done('taohuayuan');
+  document.getElementById('taohuayuan-secret').hidden=!secretOpen;
+  document.getElementById('taohuayuan-unlocked-note').hidden=!secretOpen;
+  document.getElementById('taohuayuan-secret').closest('.games').classList.toggle('secret-open',secretOpen);
+  for(const [area,first,second] of [['easy','mulan','room'],['medium','taohuayuan','child'],['hard','zuozhongyi','shishuo1']]){
+    document.getElementById(area+'-extras').hidden=!(done(first)&&done(second));
+  }
+  document.getElementById('hard-fourth').hidden=!(done('zuozhongyi')&&done('shishuo1')&&done('shishuo2'));
+  document.getElementById('hard-fifth').hidden=!(done('zuozhongyi')&&done('shishuo1')&&done('shishuo2')&&done('shengyou'));
+  document.getElementById('game-ailian').hidden=document.getElementById('medium-extras').hidden;
+  document.getElementById('game-shishuo2').hidden=document.getElementById('hard-extras').hidden;
+  document.getElementById('game-shengyou').hidden=document.getElementById('hard-fourth').hidden;
+  document.getElementById('game-sun_tower').hidden=document.getElementById('hard-fifth').hidden;
+  document.getElementById('game-friend-date').hidden=!(done('mulan')&&done('room'));
+  document.getElementById('game-night-travel').hidden=!(done('mulan')&&done('room')&&done('friend_date'));
+  document.getElementById('game-hourse').hidden=!(done('mulan')&&done('room')&&done('friend_date')&&done('night_travel'));
+   document.getElementById('game-five-tree').hidden=!(done('mulan')&&done('room')&&done('friend_date')&&done('night_travel')&&done('hourse'));
+   document.getElementById('game-red_river').hidden=!(done('mulan')&&done('room')&&done('friend_date')&&done('night_travel')&&done('hourse')&&done('five-tree'));
+   document.getElementById('mountain-stage').hidden=!(done('taohuayuan')&&done('child')&&done('ailian'));
+   document.getElementById('paint-stage').hidden=!(done('taohuayuan')&&done('child')&&done('ailian')&&done('mountain')); 
+   }
+   window.addEventListener('shuowen-cloud-changed',updateGameCards);
+   window.addEventListener('pageshow',updateGameCards);
+   window.addEventListener('storage',updateGameCards);
+   updateGameCards();
+})();
+
+(function(){
+ const A=window.ShuowenAcademy,$=id=>document.getElementById(id);
+ const C=window.ShuowenCloud;
+ function render(){const d=A.load();const s=C.session();const active=s?.name||'';$('cloudStatus').textContent=s?'已登入：'+s.name+'（'+s.code+'）':'尚未登入雲端學籍';$('cloudShowCreate').hidden=!!s;$('cloudShowLogin').hidden=!!s;$('cloudLogout').hidden=!s;const p=d.profiles[active],xp=A.total(p),r=p?A.rankOf(p):0,rank=A.RANKS[r],next=A.RANKS[r+1];
+  $('academyName').textContent=p?'玩家：'+p.name:'尚未建立學籍';$('academyRank').textContent=rank.name;$('academyCompleted').textContent=A.completed(p).length+' 篇已通關';$('academyPoints').textContent=xp+' 文采值';$('academyAvatar').textContent=['📖','🪶','📜','🏮','🏯','👑'][r];
+  const floor=rank.min,ceil=next?next.min:floor;$('academyBar').style.width=next?Math.max(0,Math.min(100,(xp-floor)/(ceil-floor)*100))+'%':'100%';
+  $('academyNext').textContent=!p?'輸入姓名建立學籍，或直接進入遊戲':next?'下一階：'+next.name+'（需達 '+next.min+' 文采值及指定通關條件）':'已達最高稱號！';
+  const badges=$('academyBadges');badges.replaceChildren();
+  const catalog=Object.entries(SHUOWEN_BADGE_INFO),owned=p?.badges||{};
+  const ownedCount=catalog.filter(([name])=>Object.prototype.hasOwnProperty.call(owned,name)).length;
+  $('academyBadgeCount').textContent=ownedCount+' / '+catalog.length+' 已收集';
+  for(const [name,info] of catalog){
+    const earned=Object.prototype.hasOwnProperty.call(owned,name);
+    const displayName=name==='妙手排章'?'記憶猶新':name;
+    const el=document.createElement('button');el.type='button';el.className='gallery-badge'+(earned?'':' locked');
+    el.setAttribute('aria-label',displayName+'，'+(earned?'已獲得':'尚未解鎖')+'，點擊查看取得條件');
+    const icon=document.createElement('span');icon.className='gallery-icon';icon.textContent=info.icon;
+    const title=document.createElement('span');title.className='gallery-name';title.textContent=displayName;
+    el.append(icon,title);
+    el.addEventListener('click',()=>showSwModal(info.icon+' '+displayName,(earned?'🏅 已獲得\n':'🔒 尚未解鎖\n')+'取得條件：'+info.condition));
+    badges.appendChild(el);
+  }
+ }
+ function showLoginForm(mode){swTitle.textContent=mode==='create'?'📜 建立雲端學籍':'🔑 換裝置登入';swBody.replaceChildren();const f=document.createElement('form');f.className='cloud-form';const make=(label,placeholder,max)=>{const wrap=document.createElement('label');wrap.textContent=label;const inp=document.createElement('input');inp.placeholder=placeholder;inp.maxLength=max;inp.required=true;inp.autocomplete='off';wrap.appendChild(inp);f.appendChild(wrap);return inp};const code=make('六位數學籍代碼（學生填學號；老師可自訂）','例如 583204',6);code.inputMode='numeric';code.pattern='[0-9]{6}';const nameOrPin=make(mode==='create'?'姓名或暱稱':'四位數恢復碼',mode==='create'?'例如 小明':'例如 5836',mode==='create'?12:4);if(mode!=='create'){nameOrPin.inputMode='numeric';nameOrPin.pattern='[0-9]{4}'}const note=document.createElement('p');note.textContent=mode==='create'?'完成後系統會產生四位數恢復碼，請記下來。':'姓名不必重填，輸入學籍代碼和恢復碼即可。';f.appendChild(note);const submit=document.createElement('button');submit.type='submit';submit.textContent=mode==='create'?'建立學籍':'登入學籍';f.appendChild(submit);const error=document.createElement('p');error.setAttribute('role','alert');f.appendChild(error);f.addEventListener('submit',async e=>{e.preventDefault();submit.disabled=true;error.textContent='連線中……';try{const r=mode==='create'?await C.create(code.value,nameOrPin.value):await C.login(code.value,nameOrPin.value);render();if(r.pin){swTitle.textContent='✅ 雲端學籍建立成功';swBody.replaceChildren();const intro=document.createElement('p');intro.textContent='請抄下這組四位數恢復碼。換裝置時會用到：';const big=document.createElement('h2');big.textContent=r.pin;big.style.cssText='font-size:40px;text-align:center;letter-spacing:.2em';const last=document.createElement('p');last.textContent='學籍代碼：'+r.code+'｜姓名：'+r.name+'。這台裝置已自動登入。';swBody.append(intro,big,last)}else{modal.hidden=true} }catch(ex){error.textContent='⚠️ '+ex.message;submit.disabled=false}});swBody.appendChild(f);modal.hidden=false;code.focus()}
+ $('cloudShowCreate').addEventListener('click',()=>showLoginForm('create'));
+ $('cloudShowLogin').addEventListener('click',()=>showLoginForm('login'));
+ $('cloudLogout').addEventListener('click',async()=>{if(!confirm('要登出這台裝置的學籍嗎？公用電腦建議登出。'))return;const button=$('cloudLogout');button.disabled=true;const status=$('cloudStatus');status.textContent='正在確認雲端學籍已保存……';try{await C.logout();render()}catch(e){status.textContent='⚠️ 雲端同步或登出失敗，已保留本機學籍';alert('目前無法確認雲端已保存學籍，因此沒有登出，也沒有清除本機資料。請檢查網路後再試。\n詳細原因：'+e.message)}finally{button.disabled=false}});
+ window.addEventListener('shuowen-cloud-changed',render);
+ if(C.session()){const indicator=$('cloudStatus');indicator.textContent='☁️ 正在確認雲端學籍同步……';C.pull().then(()=>{render();indicator.textContent='✅ 雲端學籍已同步：'+C.session().name;}).catch(e=>{console.warn(e);indicator.textContent='⚠️ 雲端同步失敗，資料暫留本機。'+e.message;});}
+ 
+
+ const modal=$('swModal'),swTitle=$('swTitle'),swBody=$('swBody');
+ function showSwModal(title,content){swTitle.textContent=title;swBody.replaceChildren();const p=document.createElement('p');p.textContent='取得條件：'+content;swBody.appendChild(p);modal.hidden=false;$('swClose').focus()}
+ function closeSwModal(){modal.hidden=true}
+ $('swClose').addEventListener('click',closeSwModal);modal.addEventListener('click',e=>{if(e.target===modal)closeSwModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)closeSwModal()});
+ const CLOUD_URL='https://qxgysajhvqjpogrsutyf.supabase.co';const CLOUD_KEY='sb_publishable_TvmZX_hhWXlQlxEQ4ejz5Q_UOnwedVP';
+ const boards=[['木蘭詩','mulan_leaderboard'],['陋室銘','room_leaderboard'],['桃花源記','taohuayuan_leaderboard'],['兒時記趣','child_leaderboard'],['桃花源記 PLUS','taohuayuan_plus_leaderboard'],['左忠毅公軼事','zuozhongyi_leaderboard'],['世說新語選1','shishuo1_leaderboard'],['世說新語選2','shishuo2_leaderboard'],['愛蓮說','ailian_leaderboard'],['生於憂患死於安樂','shengyou_leaderboard'],['陳太丘與友期行','friend_date_leaderboard'],['記承天寺夜遊','night_travel_leaderboard'],['馬說','hourse_leaderboard'],['五柳先生傳','five_tree_leaderboard'],['滿江紅','red_river_leaderboard'],['畫菊自序','paint_leaderboard']];
+ async function loadBoard(table){const u=CLOUD_URL+'/rest/v1/'+table+'?select=player_name,total_score,achieved_at&order=total_score.desc,achieved_at.asc&limit=20';const res=await fetch(u,{headers:{apikey:CLOUD_KEY,Authorization:'Bearer '+CLOUD_KEY}});if(!res.ok)throw Error('讀取失敗（HTTP '+res.status+'）');return await res.json()}
+ async function drawBoard(table){swBody.replaceChildren();const p=document.createElement('p');p.textContent='正在讀取雲端排行榜……';swBody.appendChild(p);try{const rows=await loadBoard(table);if(modal.hidden)return;swBody.replaceChildren();if(!rows.length){p.textContent='目前還沒有排行榜紀錄。';swBody.appendChild(p);return}const t=document.createElement('table');t.className='sw-board';const head=document.createElement('tr');for(const name of ['名次','玩家','分數']){const th=document.createElement('th');th.textContent=name;head.appendChild(th)}t.appendChild(head);rows.forEach((r,i)=>{const tr=document.createElement('tr');for(const v of [i+1,r.player_name,Number(r.total_score).toLocaleString('zh-TW')]){const td=document.createElement('td');td.textContent=v;tr.appendChild(td)}t.appendChild(tr)});swBody.appendChild(t)}catch(err){p.textContent='無法讀取排行榜：'+err.message;swBody.replaceChildren();swBody.appendChild(p)}}
+ $('academyLeaderboardBtn').addEventListener('click',()=>{swTitle.textContent='🏆 雲端排行榜';swBody.replaceChildren();const sel=document.createElement('select');sel.setAttribute('aria-label','選擇古文排行榜');for(const [title,table] of boards){const op=document.createElement('option');op.value=table;op.textContent=title;sel.appendChild(op)}const area=document.createElement('div');swBody.append(sel,area);modal.hidden=false;async function refresh(){area.textContent='正在讀取……';try{const rows=await loadBoard(sel.value);area.replaceChildren();if(!rows.length){area.textContent='目前沒有紀錄';return}const t=document.createElement('table');t.className='sw-board';const head=document.createElement('tr');['名次','玩家','分數'].forEach(x=>{const th=document.createElement('th');th.textContent=x;head.appendChild(th)});t.appendChild(head);rows.forEach((r,i)=>{const tr=document.createElement('tr');[i+1,r.player_name,Number(r.total_score).toLocaleString('zh-TW')].forEach(x=>{const td=document.createElement('td');td.textContent=x;tr.appendChild(td)});t.appendChild(tr)});area.appendChild(t)}catch(e){area.textContent='排行榜載入失敗：'+e.message}}sel.addEventListener('change',refresh);refresh();$('swClose').focus()});
+ window.addEventListener('pageshow',render);window.addEventListener('storage',render);render();
+})();
+</script>
+</body>
+</html>
